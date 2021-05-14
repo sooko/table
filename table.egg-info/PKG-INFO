@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: table
+Version: 0.1.0
+Summary: An awesome package that does something
+Home-page: https://github.com/sooko/table.git
+Author: burhan
+Author-email: hansmotor89@gmail.com
+License: LICENSE.txt
+Description: open('README.txt').read()
+Platform: UNKNOWN
