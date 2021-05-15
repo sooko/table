@@ -7,8 +7,6 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.clock import Clock
 
-import os
-print(os.listdir())
 
 Builder.load_string("""
 
