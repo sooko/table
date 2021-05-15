@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
 name='table',
-version='0.1.0',
+version='0.2.0',
 author='An Awesome Coder',
 author_email='aac@example.com',
 packages=['table'],

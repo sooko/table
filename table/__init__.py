@@ -1,4 +1,4 @@
-from ast import Num
+from ast import Num, Str
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty,DictProperty,ListProperty,NumericProperty
@@ -6,12 +6,7 @@ from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.clock import Clock
-
-
 Builder.load_string("""
-
-
-
 <LabelItem@Label>
     canvas.before:
         Color: 
@@ -24,7 +19,7 @@ Builder.load_string("""
 <TableItem>:
 
     spacing:dp(1)
-    fonts_size:self.height*.4
+    fonts_size:self.height*.6
     list_size:[.5,1,1]
     cols:4
     item:""
@@ -113,8 +108,8 @@ Builder.load_string("""
         text:root.val2
         font_name:root.font_names
         size_hint:.3,1
-
 <Table>:
+
     root_row:root_row
     pos_hint: {'center_x':.5 , 'center_y':.5 }
     FloatLayout
@@ -129,23 +124,19 @@ Builder.load_string("""
                 height:root.height*.1
                 bg_color:[1,1,1,0]
                 bg_round_color:[1,1,1,.3]
-                item:"ITEM"
-                val1:"VALUE"
-                val2:"VOLT"
-                
-                
+                val1:root.val1_name                    
+                val2:root.val2_name                
+                item:root.item_name                
             ScrollView
                 GridLayout
                     spacing:dp(1)
                     cols:1
-                    row_default_height:root.height*.1
                     id:root_row
                     size_hint:1,None
                     height:self.minimum_height
+                    row_default_height:root.height*root.row_height_hint
 
 
-
-                  
 
 
 
@@ -172,6 +163,12 @@ class TableItem(BoxLayout):
     def __init__(self, **kwargs):
         super(TableItem,self).__init__(**kwargs)
 class Table(FloatLayout):
+
+    item_name=StringProperty("")
+    val1_name=StringProperty("")
+    val2_name=StringProperty("")
+    
+    row_height_hint=NumericProperty(.1)
     rows=NumericProperty(0)
     is_ready=False
     row_item=DictProperty({})
