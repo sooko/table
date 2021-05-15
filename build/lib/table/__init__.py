@@ -6,6 +6,8 @@ from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.clock import Clock
+
+# print(d)
 Builder.load_file("table/table.kv")
 class TableItem(BoxLayout):
     bg_color=ListProperty([1,1,1,0])
